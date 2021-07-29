@@ -1,145 +1,195 @@
 <?php
-
-// 1.   Задача. Дан массив с числами. Создайте из него новый массив,
-//      где останутся лежать только положительные числа. Создайте для этого вспомогательную функцию isPositive,
-//      которая параметром будет принимать число и возвращать true, если число положительное, и false - если отрицательное.
-
-
-//$arr = [13,41,22,43 , 42, 15, 76, 89, -97, -42, -67, 13];
+error_reporting(E_ALL);
+// 1.   Спросите у пользователя имя с помощью формы. Сделайте чекбокс: если он отмечен,
+//      то поприветствуйте пользователя, если не отмечен - попрощайтесь с пользователем.
 //
-//$newArr = [];
 //
-//function isPositive($num)
+//
+//
+//?>
+<!---->
+<!--<form action="index.php" method="GET" >-->
+<!--    <input type="text" name="name">-->
+<!--    <input type="hidden" name="check" value="0">-->
+<!--    <input type="checkbox" name="check" value="1">-->
+<!--    <input type="submit" value="PUSH">-->
+<!--</form>-->
+<!---->
+<!---->
+<?php
+//
+//if (!empty($_GET) && $_GET['check'] == 1)
 //{
-//    if ($num > 0)
+//    echo 'hi ' . $_GET['name'];
+//}
+//elseif (!empty($_GET) && $_GET['check'] == 0)
+//{
+//    echo 'bb' . $_GET['name'];
+//}
+//
+//
+//?>
+<!--// 2.   Спросите у пользователя, какие из языков он знает: html, css, php, javascript.-->
+<!--//      Выведите на экран те языки, которые знает пользователь.-->
+
+<?php
+//var_dump($_GET);
+//if (isset($_GET['lang']))
+//{
+//    echo 'Вы знаете: ' . implode(',', $_GET['lang']);
+//}
+//echo '<br/>'
+//?>
+
+
+<!--<form action="index.php" method="GET" >-->
+<!--    <input type="text" name="lang[]">-->
+<!--    <p>HTML<input type="checkbox" name="lang[]" value="HTML"></p>-->
+<!--    <p>CSS<input type="checkbox" name="lang[]" value="CSS"></p>-->
+<!--    <p>JS<input type="checkbox" name="lang[]" value="JS"></p>-->
+<!--    <p>PHP<input type="checkbox" name="lang[]" value="PHP"></p>-->
+<!--    <input type="submit" value="PUSH">-->
+<!--</form>-->
+<!---->
+
+
+<?php
+//
+//// 3.   Спросите у пользователя знает ли он PHP с помощью двух radio-кнопок.
+////      Выведите результат на экран. Сделайте так, чтобы по умолчанию один из вариантов был уже отмечен.
+//
+//
+//        if (isset($_GET['variable']) && $_GET['variable'] == 1)
+//            echo 'Ура, Вы знаете PHP!';
+//        elseif (isset($_GET['variable']) && $_GET['variable'] == 0)
+//            echo 'Вы не знаете PHP(((';
+//?>
+
+<!--<form action="" method="GET">-->
+<!--    <p>Знаете ли Вы PHP?</p>-->
+<!--    <p>Да, знаю<input type="radio" name="variable" value="1" ></p>-->
+<!--    <p>Нет, не знаю<input type="radio" name="variable" value="0" checked></p>-->
+<!--    <input type="submit" value="push">-->
+<!--</form>-->
+
+
+<!--4.  Спросите у пользователя его возраст с помощью нескольких radio-кнопок.-->
+<!--    Варианты ответа сделайте такими: менее 20 лет, 20-25, 26-30, более 30.-->
+
+
+<!--<form action="" method="GET">-->
+<!--    <p>Укажите Ваш возраст</p>-->
+<!--    <p>Менее 20 лет<input type="radio" name="variable" value="1"></p>-->
+<!--    <p>20-25 лет<input type="radio" name="variable" value="2"></p>-->
+<!--    <p>26-30 лет<input type="radio" name="variable" value="3"></p>-->
+<!--    <p>более 30 лет<input type="radio" name="variable" value="4"></p>-->
+<!--    <input type="submit" value="push">-->
+<!--</form>-->
+
+<?php
+//        if (isset($_GET['variable']) && $_GET['variable'] == 1)
+//            echo 'Вам менее 20 лет';
+//        elseif (isset($_GET['variable']) && $_GET['variable'] == 2)
+//            echo 'Вам от 20 до 25 лет';
+//        elseif (isset($_GET['variable']) && $_GET['variable'] == 3)
+//            echo 'Вам от 26 до 30 лет';
+//        elseif (isset($_GET['variable']) && $_GET['variable'] == 4)
+//            echo 'Ухх, старичек:-)';
+?>
+
+
+<!-- 6.     Спросите у пользователя его возраст с помощью select.-->
+<!--        Варианты ответа сделайте такими: менее 20 лет, 20-25, 26-30, более 30.-->
+
+<!--<form action="" method="GET">-->
+<!--    <p>Укажите Ваш возраст</p>-->
+<!--    <select name="age" id="1">-->
+<!--        <option value="1" name="age">Менее 20 лет</option>-->
+<!--        <option value="2" name="age">20-25 лет</option>-->
+<!--        <option value="3" name="age">26-30 лет</option>-->
+<!--        <option value="4" name="age">более 30 лет</option>-->
+<!--    </select>-->
+<!--    <input type="submit" value="push">-->
+<!--</form>-->
+
+<?php
+//        if (isset($_GET['age']) && $_GET['age'] == 1)
+//            echo 'Вам менее 20 лет';
+//        elseif (isset($_GET['age']) && $_GET['age'] == 2)
+//            echo 'Вам от 20 до 25 лет';
+//        elseif (isset($_GET['age']) && $_GET['age'] == 3)
+//            echo 'Вам от 26 до 30 лет';
+//        elseif (isset($_GET['age']) && $_GET['age'] == 4)
+//            echo 'Ухх, старичек:-)';
+?>
+
+<!-- 7.     Спросите у пользователя с помощью мультиселекта, какие из языков он знает: html, css, php, javascript.
+    Выведите на экран те языки, которые знает пользователь.-->
+
+
+<!--<form action="" method="GET">-->
+<!--    <p>Какие ЯП Вы знаете?</p>-->
+<!--    <select id="1"  name="lang[]" multiple>-->
+<!--        <option value="JS">JS</option>-->
+<!--        <option value="HTML">HTML</option>-->
+<!--        <option value="PHP">PHP</option>-->
+<!--        <option value="CSS">CSS</option>-->
+<!--    </select>-->
+<!--    <input type="submit" value="push">-->
+<!--</form>-->
+
+<?php
+
+//    if (isset($_GET['lang']))
 //    {
-//        return true;
+//        echo 'Вы знаете ' . implode(',', $_GET['lang']);
 //    }
-//    else
+?>
+
+<!-- 8.    Сделайте функцию, которая создает обычный текстовый инпут.
+           Функция должна иметь следующие параметры: type, name, value.
+           Модифицируйте функцию из предыдущей задачи так, чтобы она сохраняла значение инпута после отправки-->
+
+
+<?php
+//function input($type, $name, $value)
+//{
+//    if (isset($_GET[$name]))
 //    {
-//        return false;
+//        $value = $_GET[$name];
 //    }
+//    return "<input type=".$type." name=".$name." value=".$value.">";
 //}
 //
-//foreach ($arr as $item) {
-//    if (isPositive($item))
-//    {
-//        $newArr[] = $item;
+
+?>
+
+<!--<form action="" method="GET">-->
+<!--    --><?php //echo input('text', 'input', '1');?>
+<!--    <input type="submit">-->
+<!--</form>-->
+
+<!-- 9.    Сделайте функцию, которая создает чекбокс.
+           Если чекбокс не отмечен - функция должна отправлять 0 (то есть нужно сделать hidden инпут), если отмечен - 1-->
+
+
+<?php
+
+//function input($name)
+//{
+//    if(isset($_REQUEST[$name]) and $_REQUEST[$name] == 1) {
+//        $value = 'checked';
+//    } else {
+//        $value = '';
 //    }
-//}
-//
-//var_dump($newArr);
-//
+//    return '<input type="hidden" name="'.$name.'" value="0">
+//		<input type="checkbox" name="'.$name.'" value="1" '.$value.'>';
+}
+?>
 
-
-// 2.   Сделайте функцию isNumberInRange, которая параметром принимает число и проверяет, что оно больше нуля и меньше 10.
-//      Если это так - пусть функция возвращает true, если не так - false.
-//      Дан массив с числами. Запишите в новый массив только те числа, которые больше нуля и меньше 10-ти.
-//      Для этого используйте вспомогательную функцию isNumberInRange из предыдущей задачи.
-
-//function isNumberInRange($num)
-//{
-//    if($num > 0 && $num < 10)
-//    {
-//        return true;
-//    }
-//}
-//
-//$arr = [1, 2, 3, 4, 12, 43, 867, 2, 3];
-//
-//$newArr = [];
-//
-//foreach ($arr as $item) {
-//    if (isNumberInRange($item))
-//    $newArr[] = $item;
-//}
-//
-//var_dump($newArr);
-
-// 3.   Сделайте функцию getDigitsSum (digit - это цифра),
-//      которая параметром принимает целое число и возвращает сумму его цифр.
-//      Найдите все года от 1 до 2021, сумма цифр которых равна 13.
-//      Для этого используйте вспомогательную функцию getDigitsSum из предыдущей задачи.
-
-//function getDigitsSum($num)
-//{
-//    $k = array_sum(str_split($num));
-//    return $k;
-//};
-//
-//
-//
-//
-//$arr = range(1, 2021);
-//
-//$newArr = [];
-//
-//foreach ($arr as $key)
-//{
-//    if (getDigitsSum($key) == 13)
-//        $newArr[] = $key;
-//
-//}
-//var_dump($newArr);
-//
-
-
-// 4.    Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет.
-//       Если четное - пусть функция возвращает true, если нечетное - false.
-//       Дан массив с целыми числами.
-//       Создайте из него новый массив, где останутся лежать только четные из этих чисел.
-//       Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
-
-//function isEven($num){
-//    if(!($num % 2))
-//        return true;
-//}
-//
-//
-//$arr = range(1,100);
-//
-//$newArr = [];
-//
-//foreach ($arr as $key)
-//{
-//    if (isEven($key) === true) {
-//        $newArr[] = $key;
-//    }
-//}
-//
-//var_dump($newArr);
-
-
-// 5.   Сделайте функцию getDivisors, которая параметром принимает число
-//      и возвращает массив его делителей (чисел, на которое делится данное число).
-//      Сделайте функцию getCommonDivisors, которая параметром принимает 2 числа, а возвращает массив их общих делителей.
-//      Для этого используйте вспомогательную функцию getDivisors из предыдущей задачи.
-
-//function getDivisors($num)
-//{
-//    $arr = [];
-//    for ($i = 1; $i <= $num; $i++)
-//    {
-//        if(is_int($num / $i))
-//        {
-//            $arr[] = $i;
-//        }
-//    }
-//    return $arr;
-//}
-
-
-//function getCommonDivisors ($num1, $num2)
-//{
-//    $a = [];
-//    $b = [];
-//    $c = [];
-//    $a = getDivisors($num1);
-//    $b = getDivisors($num2);
-//    $c = array_intersect($a, $b);
-//
-//    var_dump($c);
-//}
-//
-//
-//getCommonDivisors(200, 200);
+<!--<form action="" method="get">-->
+<!--    --><?php //echo input('chek1')?>
+<!--    --><?php //echo input('chek2')?>
+<!--    --><?php //echo input('chek3')?>
+<!--    <input type="submit">-->
+<!--</form>-->
