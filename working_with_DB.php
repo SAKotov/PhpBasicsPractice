@@ -1,13 +1,13 @@
 <?php
 
 //Устанавливаем доступы к базе данных:
-$host = 'localhost'; //имя хоста, на локальном компьютере это localhost
-$user = 'root'; //имя пользователя, по умолчанию это root
-$password = 'root'; //пароль, по умолчанию пустой
-$db_name = 'test'; //имя базы данных
-
-//Соединяемся с базой данных используя наши доступы:
-$link = mysqli_connect($host, $user, $password, $db_name);
+//$host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+//$user = 'root'; //имя пользователя, по умолчанию это root
+//$password = 'root'; //пароль, по умолчанию пустой
+//$db_name = 'test'; //имя базы данных
+//
+////Соединяемся с базой данных используя наши доступы:
+//$link = mysqli_connect($host, $user, $password, $db_name);
 
 
 //Формируем запросы:
@@ -67,17 +67,72 @@ echo '<pre>';
 
 //$query = "SELECT * FROM pages WHERE author LIKE '%ов'";
 //$query = "SELECT * FROM workers WHERE age LIKE '3_'";
-$query = "SELECT * FROM workers WHERE name LIKE '%я'";
+
+$host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+$user = 'root'; //имя пользователя, по умолчанию это root
+$password = 'root'; //пароль, по умолчанию пустой
+$db_name = 'test'; //имя базы данных
+
+//Соединяемся с базой данных используя наши доступы:
 
 
 
 
-//Делаем запрос к БД, результат запроса пишем в $result:
-$result = mysqli_query($link, $query) or die(mysqli_error($link));
-//
-//
-//Преобразуем то, что отдала нам база в нормальный массив PHP $data:
-for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
+$link = mysqli_connect($host, $user, $password, $db_name);
 
 
-var_dump($data);
+
+
+
+
+?>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>salary</th>
+        <th>delete</th>
+    </tr>
+    <?php
+
+    if (isset($_GET['del']))
+    {
+        $del = $_GET['del'];
+        $query = "DELETE FROM workers WHERE id=$del";
+        mysqli_query($link, $query) or die(mysqli_error($link));
+    }
+
+    $query = "SELECT * FROM workers";
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
+
+
+    $result = '';
+    foreach ($data as $elem)
+    {
+        $result .= '<tr>';
+        $result .= '<td>' . $elem['id'] . '</td>';
+        $result .= '<td>' . $elem['name'] . '</td>';
+        $result .= '<td>' . $elem['age'] . '</td>';
+        $result .= '<td>' . $elem['salary'] . '</td>';
+        $result .= '<td><a href="?del=' . $elem['id'] . ' ">удалить</a></td>';
+
+
+        $result .= '</tr>';
+    }
+    echo $result;
+
+    ?>
+</table>
+
+<!--//Делаем запрос к БД, результат запроса пишем в $result:-->
+<!--//$result = mysqli_query($link, $query) or die(mysqli_error($link));-->
+<!--//-->
+<!--//-->
+<!--//Преобразуем то, что отдала нам база в нормальный массив PHP $data:-->
+<!--//for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);-->
+<!---->
+<!---->
+<!--var_dump($data);-->
