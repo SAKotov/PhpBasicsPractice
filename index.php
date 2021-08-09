@@ -7,4 +7,5 @@ ini_set('display_errors', 'on');
 //include 'working_with_files.php';
 //include 'working_with_sessions.php';
 //include 'working_with_sessions.php';
+include 'add.php';
 include 'working_with_DB.php';
